@@ -32,10 +32,10 @@
   "homepage": "https://usekaval.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/usekaval/kaval.git"
+    "url": "git+https://github.com/usekaval/kaval-oss.git"
   },
   "bugs": {
-    "url": "https://github.com/usekaval/kaval/issues"
+    "url": "https://github.com/usekaval/kaval-oss/issues"
   },
   "license": "MIT"
 }
