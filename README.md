@@ -21,6 +21,10 @@ Kaval runs **both** versions of every change — the code before your diff and t
 
 Reading the diff, you'd never know. Running it, you can't miss it.
 
+<p align="center">
+  <img src="assets/gif-demo.gif" alt="Kaval posting an advisory check on a pull request with executed before/after evidence" width="800">
+</p>
+
 → **Run it on any public repo, no install: [usekaval.com](https://usekaval.com)**
 
 ---
