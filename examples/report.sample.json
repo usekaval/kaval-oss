@@ -1,0 +1,71 @@
+{
+  "kaval": 1,
+  "repo": "dubinc/dub",
+  "url": "https://app.usekaval.com/run/dubinc/dub",
+  "generatedAt": "2026-06-15T00:00:00Z",
+  "scope": { "commitsScanned": 200, "fixLike": 29 },
+  "scoreboard": {
+    "analyzed": 16,
+    "flagged": 11,
+    "strong": 4,
+    "blocked": 0,
+    "escalated": 5,
+    "missed": 5,
+    "control": { "clean": 27, "falseBlocks": 0 }
+  },
+  "incidents": [
+    {
+      "verdict": "flagged",
+      "strong": true,
+      "culprit": { "sha": "c2c6705", "subject": "feat: per-plan payment behavior" },
+      "fix": { "sha": "5bee35d", "subject": "fix: stripe payment_behavior on missing subscription status" },
+      "file": "apps/web/lib/stripe/checkout.ts",
+      "func": "resolvePaymentBehavior",
+      "title": "Executed behavior change in resolvePaymentBehavior: a missing subscription status now returns a different default",
+      "evidence": {
+        "kind": "executed",
+        "input": "subscription with no status",
+        "before": "\"default_incomplete\"",
+        "after": "\"allow_incomplete\""
+      }
+    },
+    {
+      "verdict": "flagged",
+      "strong": true,
+      "culprit": { "sha": "6a7fc80", "subject": "feat: stablecoin payouts" },
+      "fix": { "sha": "fcc5c12", "subject": "fix: payout amount rounding for stablecoins" },
+      "file": "apps/web/lib/payouts/amount.ts",
+      "func": "payoutMinorUnits",
+      "title": "Executed behavior change in payoutMinorUnits: rounding flips for sub-cent amounts",
+      "evidence": {
+        "kind": "executed",
+        "input": "amount = 10.005",
+        "before": "1000",
+        "after": "1001"
+      }
+    },
+    {
+      "verdict": "escalated",
+      "strong": false,
+      "culprit": { "sha": "9d08a57", "subject": "refactor webhook retry" },
+      "fix": { "sha": "ab90c80", "subject": "fix: webhook retry storm" },
+      "file": "apps/web/lib/webhooks/retry.ts",
+      "func": "scheduleRetry",
+      "title": "Dependency call set changed in scheduleRetry, with no stated intent — worth a human look",
+      "evidence": {
+        "kind": "calls",
+        "removed": ["queue.add('webhook', { delay })"],
+        "added": ["queue.add('webhook', {})"]
+      }
+    },
+    {
+      "verdict": "missed",
+      "strong": false,
+      "culprit": { "sha": "7f7f657", "subject": "tweak rate limiter config" },
+      "fix": { "sha": "9323b60", "subject": "fix: rate limit rollback" },
+      "file": "apps/web/lib/ratelimit.ts",
+      "title": "Config-only change — no function-shaped behavior to execute, so Kaval did not flag it",
+      "evidence": { "kind": "none" }
+    }
+  ]
+}
