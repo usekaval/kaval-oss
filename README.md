@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/kaval-logo-white.svg">
+    <img src="assets/kaval-logo.svg" alt="Kaval" height="76">
+  </picture>
+</p>
+
 # Kaval
 
 **A pre-merge gate that catches silent regressions — the behavior changes that pass review and pass CI, then page someone at 2am.**
