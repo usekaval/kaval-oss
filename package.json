@@ -1,0 +1,41 @@
+{
+  "name": "@usekaval/kaval",
+  "version": "0.1.0",
+  "description": "Pre-merge gate that catches silent regressions by running both versions of every change. This repo: the report format, a reference renderer, a toy replay, and the thin client.",
+  "type": "module",
+  "bin": {
+    "kaval": "bin/kaval.mjs",
+    "kaval-render": "bin/render.mjs"
+  },
+  "files": [
+    "bin/",
+    "examples/",
+    "SPEC.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "replay": "node examples/replay.mjs",
+    "render": "node bin/render.mjs examples/report.sample.json"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "pre-merge",
+    "regression",
+    "ci",
+    "code-review",
+    "differential-testing",
+    "github-app"
+  ],
+  "homepage": "https://usekaval.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usekaval/kaval.git"
+  },
+  "bugs": {
+    "url": "https://github.com/usekaval/kaval/issues"
+  },
+  "license": "MIT"
+}
